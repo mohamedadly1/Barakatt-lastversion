@@ -125,7 +125,7 @@ export function MainNavigation() {
 
           <NavigationMenuList className="gap-1">
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="transition-colors duration-300">
+              <NavigationMenuTrigger>
                 <EditableText contentKey="nav.hearingHealthMenu" defaultValue="Your Hearing Health" as="span" />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -174,9 +174,9 @@ export function MainNavigation() {
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        setHearingLossOpen(!hearingLossOpen);
+        setTinnitusOpen(!tinnitusOpen); // Uses the specific tinnitus state
       }}
-      className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
+      className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 border-2 border-secondary/30 hover:border-secondary hover:bg-secondary/5 hover:text-foreground hover:shadow-md"
     >
       <Stethoscope className="h-5 w-5 text-secondary transition-transform duration-300 group-hover:scale-110" />
       <div className="flex flex-1 flex-col text-left">
@@ -294,7 +294,7 @@ export function MainNavigation() {
             <ProductsMegaMenu />
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="transition-colors duration-300">
+              <NavigationMenuTrigger>
                 <EditableText contentKey="nav.companyMenu" defaultValue="Company" as="span" />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -330,7 +330,7 @@ export function MainNavigation() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="transition-colors duration-300">
+              <NavigationMenuTrigger>
                 <EditableText contentKey="nav.contactMenu" defaultValue="Contact" as="span" />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -384,7 +384,7 @@ export function MainNavigation() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="transition-colors duration-300">
+              <NavigationMenuTrigger>
                 <EditableText contentKey="nav.resourcesMenu" defaultValue="Resources" as="span" />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -533,10 +533,10 @@ export function MainNavigation() {
                   {/* Expandable Sections */}
                   <div className="space-y-2 mt-4">
                     {/* Hearing Health Section */}
-                    <div className="rounded-xl border border-border/50 overflow-hidden bg-card/50 backdrop-blur-sm">
+                    <div className="rounded-xl border-2 border-secondary/30 overflow-hidden bg-card/50 backdrop-blur-sm hover:border-secondary hover:shadow-md transition-all duration-300">
                       <button
                         onClick={(e) => toggleSection("hearing", e)}
-                        className="w-full flex items-center justify-between p-4 hover:bg-accent/10 transition-colors"
+                        className="w-full flex items-center justify-between p-4 hover:bg-secondary/5 transition-all duration-300"
                       >
                         <div className="flex items-center gap-3">
                           <Ear className="h-5 w-5 text-primary" />
@@ -565,14 +565,14 @@ export function MainNavigation() {
                             <span className="text-sm">How Hearing Works
                             </span>
                           </Link>
-                          <div className="flex flex-col">
+  <div className="flex flex-col">
     <button
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
         setHearingLossOpen(!hearingLossOpen);
       }}
-      className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
+      className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 border-2 border-secondary/30 hover:border-secondary hover:bg-secondary/5 hover:text-foreground hover:shadow-md"
     >
                             <div className="h-2 w-2 rounded-full bg-primary group-hover:scale-150 transition-transform" />
                             <div className="flex flex-1 flex-col text-left">
@@ -738,10 +738,10 @@ export function MainNavigation() {
 
 
                {/* Products Section */}
-<div className="rounded-xl border border-border/50 overflow-hidden bg-card/50 backdrop-blur-sm">
+<div className="rounded-xl border-2 border-secondary/30 overflow-hidden bg-card/50 backdrop-blur-sm hover:border-secondary hover:shadow-md transition-all duration-300">
     <button
       onClick={(e) => toggleMain("products-menu", e)}
-      className="w-full flex items-center justify-between p-4 hover:bg-accent/10 transition-colors"
+      className="w-full flex items-center justify-between p-4 hover:bg-secondary/5 transition-all duration-300"
     >
       <div className="flex items-center gap-3">
         <Ear className="h-5 w-5 text-secondary" />
@@ -776,7 +776,7 @@ export function MainNavigation() {
               <button
                 type="button"
                 onClick={(e) => toggleCategory(category.id, e)}
-                className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-accent/20 transition-all duration-200 group"
+                className="w-full flex items-center justify-between p-3 rounded-lg border-2 border-secondary/30 hover:border-secondary hover:bg-secondary/5 hover:shadow-md transition-all duration-300 group"
               >
                 <div className="flex items-center gap-3">
                   {categoryIconMap[category.icon as string] || <div className="h-4 w-4" />}
@@ -854,10 +854,10 @@ export function MainNavigation() {
 
 
                     {/* Company Section */}
-                    <div className="rounded-xl border border-border/50 overflow-hidden bg-card/50 backdrop-blur-sm">
+                    <div className="rounded-xl border-2 border-secondary/30 overflow-hidden bg-card/50 backdrop-blur-sm hover:border-secondary hover:shadow-md transition-all duration-300">
                       <button
                         onClick={(e) => toggleSection("company", e)}
-                        className="w-full flex items-center justify-between p-4 hover:bg-accent/10 transition-colors"
+                        className="w-full flex items-center justify-between p-4 hover:bg-secondary/5 transition-all duration-300"
                       >
                         <div className="flex items-center gap-3">
                           <Building className="h-5 w-5 text-accent" />
@@ -898,10 +898,10 @@ export function MainNavigation() {
                     </div>
 
                     {/* Contact Section */}
-                    <div className="rounded-xl border border-border/50 overflow-hidden bg-card/50 backdrop-blur-sm">
+                    <div className="rounded-xl border-2 border-secondary/30 overflow-hidden bg-card/50 backdrop-blur-sm hover:border-secondary hover:shadow-md transition-all duration-300">
                       <button
                         onClick={(e) => toggleSection("contact", e)}
-                        className="w-full flex items-center justify-between p-4 hover:bg-accent/10 transition-colors"
+                        className="w-full flex items-center justify-between p-4 hover:bg-secondary/5 transition-all duration-300"
                       >
                         <div className="flex items-center gap-3">
                           <Mail className="h-5 w-5 text-primary" />
@@ -947,10 +947,10 @@ export function MainNavigation() {
                     </div>
 
                     {/* Resources Section */}
-                    <div className="rounded-xl border border-border/50 overflow-hidden bg-card/50 backdrop-blur-sm">
+                    <div className="rounded-xl border-2 border-secondary/30 overflow-hidden bg-card/50 backdrop-blur-sm hover:border-secondary hover:shadow-md transition-all duration-300">
                       <button
                         onClick={(e) => toggleSection("resources", e)}
-                        className="w-full flex items-center justify-between p-4 hover:bg-accent/10 transition-colors"
+                        className="w-full flex items-center justify-between p-4 hover:bg-secondary/5 transition-all duration-300"
                       >
                         <div className="flex items-center gap-3">
                           <BookOpen className="h-5 w-5 text-secondary" />

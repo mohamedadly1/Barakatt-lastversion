@@ -21,7 +21,7 @@ export function ProductsMegaMenu() {
 
   return (
     <NavigationMenuItem>
-      <NavigationMenuTrigger className="transition-colors duration-300">
+      <NavigationMenuTrigger>
         <div className="flex items-center gap-2">
           <Ear className="h-4 w-4" />
           <span>Products & Accessories</span>
@@ -43,10 +43,10 @@ export function ProductsMegaMenu() {
                   onMouseEnter={() => setActiveSubmenu(category.id)}
                   onClick={() => setActiveSubmenu(activeSubmenu === category.id ? null : category.id)}
                   className={cn(
-                    "w-full group flex items-start gap-3 px-4 py-3 rounded-xl transition-all duration-300 border border-transparent",
-                    "hover:bg-gradient-to-r hover:from-primary/10 hover:to-primary/5 hover:border-primary/20",
+                    "w-full group flex items-start gap-3 px-4 py-3 rounded-xl transition-all duration-300 border-2",
+                    "border-primary/30 hover:border-primary hover:bg-primary/5 hover:shadow-md",
                     activeSubmenu === category.id &&
-                      "bg-gradient-to-r from-primary/20 to-primary/10 border border-primary/30 shadow-sm",
+                      "border-primary bg-primary/5 shadow-md",
                   )}
                 >
                   <div

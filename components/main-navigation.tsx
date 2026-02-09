@@ -104,62 +104,37 @@ export function MainNavigation() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-<div className="container mx-auto max-w-7xl flex h-16 items-center px-4">
-<Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-          {/* Logo container: Fixed non-standard Tailwind classes */}
-          <div className="relative h-14 w-32 transition-transform duration-300 group-hover:scale-110"> 
-            <Image
-              src="/images/albarakal-logo (1).png"
-              alt="Al-Barakat Hearing Care Center Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-          <span className="text-xs font-semibold sm:text-sm md:text-base whitespace-nowrap">
-            <EditableText contentKey="nav.brandName" defaultValue="" as="span" />
-          </span>
-        </Link>
-        <NavigationMenu className="hidden xl:flex ml-auto flex-1 justify-center">
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="flex h-16 items-center justify-between gap-6">
+          {/* Logo Section */}
+          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
+            <div className="relative h-12 w-28 transition-transform duration-300 group-hover:scale-105"> 
+              <Image
+                src="/images/albarakal-logo (1).png"
+                alt="Al-Barakat Hearing Care Center Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </Link>
 
-          <NavigationMenuList className="gap-1">
+          {/* Desktop Navigation */}
+          <NavigationMenu className="hidden lg:flex ml-auto">
+            <NavigationMenuList className="gap-0 flex">
             <NavigationMenuItem>
-              <NavigationMenuTrigger>
+              <NavigationMenuTrigger className="text-sm font-medium">
                 <EditableText contentKey="nav.hearingHealthMenu" defaultValue="Your Hearing Health" as="span" />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[500px] gap-3 p-6 md:w-[600px] md:grid-cols-2 lg:w-[700px]">
-                  <li className="row-span-3">
-                    <NavigationMenuLink asChild>
-                      <Link
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary/20 to-primary/5 p-6 no-underline outline-none transition-all duration-300 hover:from-primary/30 hover:to-primary/10 hover:shadow-lg focus:shadow-md"
-                        href="/hearing-test"
-                      >
-                        <TestTube className="h-8 w-8 text-primary animate-pulse-subtle" />
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                          <EditableText
-                            contentKey="nav.freeHearingTestTitle"
-                            defaultValue="Free Hearing Test"
-                            as="span"
-                          />
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                          <EditableText
-                            contentKey="nav.freeHearingTestDesc"
-                            defaultValue="Take our comprehensive online hearing assessment in just 3 minutes"
-                            as="span"
-                          />
-                        </p>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
+                <ul className="grid w-[500px] gap-2 p-4 md:w-[600px] md:grid-cols-2 lg:w-[700px]">
                   <ListItem
                     href="/hearing-health/how-we-hear"
                     title={<EditableText contentKey="nav.howWeHearTitle" defaultValue="How Hearing Works
                       " as="span" />}
                     icon={
-                      <Ear className="h-5 w-5 text-primary transition-transform duration-300 group-hover:scale-110" />
+                      <Mail className="h-5 w-5 text-primary" />
                     }
                   >
                     <EditableText
@@ -178,14 +153,14 @@ export function MainNavigation() {
       }}
       className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 border-2 border-secondary/30 hover:border-secondary hover:bg-secondary/5 hover:text-foreground hover:shadow-md"
     >
-      <Stethoscope className="h-5 w-5 text-secondary transition-transform duration-300 group-hover:scale-110" />
+      <Stethoscope className="h-5 w-5 text-secondary" />
       <div className="flex flex-1 flex-col text-left">
         <div className="flex items-center justify-between">
           <span className="text-sm font-medium leading-none">
             <EditableText contentKey="nav.hearingLossTitle" defaultValue="Hearing Loss" as="span" />
           </span>
           <ChevronDown 
-            className={`h-4 w-4 text-muted-foreground transition-transform duration-300 ${
+            className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
               hearingLossOpen ? "rotate-180" : ""
             }`} 
           />
@@ -233,14 +208,14 @@ export function MainNavigation() {
       className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 border-2 border-secondary/30 hover:border-secondary hover:bg-secondary/5 hover:text-foreground hover:shadow-md"
     >
       {/* BellRing is a great icon for Tinnitus (ringing in the ears) */}
-      <BellRing className="h-5 w-5 text-secondary transition-transform duration-300 group-hover:scale-110" />
+      <BellRing className="h-5 w-5 text-secondary" />
       <div className="flex flex-1 flex-col text-left">
         <div className="flex items-center justify-between">
           <span className="text-sm font-medium leading-none">
             <EditableText contentKey="nav.tinnitusTitle" defaultValue="Tinnitus" as="span" />
           </span>
           <ChevronDown 
-            className={`h-4 w-4 text-muted-foreground transition-transform duration-300 ${
+            className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
               tinnitusOpen ? "rotate-180" : ""
             }`} 
           />
@@ -282,306 +257,14 @@ export function MainNavigation() {
                       href="/hearing-health/tinnitus"
                       title={<EditableText contentKey="nav.tinnitusTitle" defaultValue="Understanding Hearing Test" as="span" />}
                       icon={
-                        <Activity className="h-5 w-5 text-accent transition-transform duration-300 group-hover:scale-110" />
-                      }
-                    >
-                      <EditableText contentKey="nav.tinnitusDesc" defaultValue="Managing ringing in the ears" as="span" />
-                    </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            <ProductsMegaMenu />
-
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>
-                <EditableText contentKey="nav.companyMenu" defaultValue="Company" as="span" />
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4">
-                  <ListItem
-                    href="/about"
-                    title={<EditableText contentKey="nav.aboutUsTitle" defaultValue="About Us" as="span" />}
-                    icon={
-                      <Building className="h-5 w-5 text-primary transition-transform duration-300 group-hover:scale-110" />
-                    }
-                  >
-                    <EditableText
-                      contentKey="nav.aboutUsDesc"
-                      defaultValue="Learn about our mission, values, and commitment to hearing care"
-                      as="span"
-                    />
-                  </ListItem>
-                  <ListItem
-                    href="/services"
-                    title={<EditableText contentKey="nav.servicesTitle" defaultValue="Services" as="span" />}
-                    icon={
-                      <Stethoscope className="h-5 w-5 text-secondary transition-transform duration-300 group-hover:scale-110" />
-                    }
-                  >
-                    <EditableText
-                      contentKey="nav.servicesDesc"
-                      defaultValue="Comprehensive hearing care services by certified audiologists"
-                      as="span"
-                    />
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>
-                <EditableText contentKey="nav.contactMenu" defaultValue="Contact" as="span" />
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4">
-                  <ListItem
-                    href="/contact"
-                    title={<EditableText contentKey="nav.contactUsTitle" defaultValue="Contact Us" as="span" />}
-                    icon={
-                      <Mail className="h-5 w-5 text-primary transition-transform duration-300 group-hover:scale-110" />
-                    }
-                  >
-                    <EditableText
-                      contentKey="nav.contactUsDesc"
-                      defaultValue="Visit our contact page for all locations and details"
-                      as="span"
-                    />
-                  </ListItem>
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <a
-                        href={`https://wa.me/${whatsappNumber}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={cn(
-                          "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 border-2 border-primary/20 hover:border-primary hover:bg-primary/5 hover:text-foreground hover:shadow-md focus:border-primary focus:bg-primary/5 focus:text-foreground",
-                        )}
-                      >
-                        <div className="flex items-center gap-2">
-                          <MessageCircle className="h-5 w-5 text-secondary transition-transform duration-300 group-hover:scale-110" />
-                          <div className="text-sm font-medium leading-none">
-                            <EditableText contentKey="nav.whatsappTitle" defaultValue="Call Us on WhatsApp" as="span" />
-                          </div>
-                        </div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          <EditableText
-                            contentKey="nav.whatsappDesc"
-                            defaultValue="Chat with us directly: "
-                            as="span"
-                          />
-                          <EditableText
-                            contentKey="contact.whatsappNumber"
-                            defaultValue="+966 800 124 8882"
-                            as="span"
-                          />
-                        </p>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>
-                <EditableText contentKey="nav.resourcesMenu" defaultValue="Resources" as="span" />
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4">
-                  <ListItem
-                    href="/blog"
-                    title={<EditableText contentKey="nav.blogTitle" defaultValue="Blog" as="span" />}
-                    icon={
-                      <BookOpen className="h-5 w-5 text-primary transition-transform duration-300 group-hover:scale-110" />
-                    }
-                  >
-                    <EditableText
-                      contentKey="nav.blogDesc"
-                      defaultValue="Latest news, tips, and insights about hearing health"
-                      as="span"
-                    />
-                  </ListItem>
-                  <ListItem
-                    href="/faq"
-                    title={<EditableText contentKey="nav.faqTitle" defaultValue="FAQ" as="span" />}
-                    icon={
-                      <HelpCircle className="h-5 w-5 text-secondary transition-transform duration-300 group-hover:scale-110" />
-                    }
-                  >
-                    <EditableText
-                      contentKey="nav.faqDesc"
-                      defaultValue="Frequently asked questions about hearing aids and care"
-                      as="span"
-                    />
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        <div className="ml-auto flex items-center gap-1 sm:gap-2 flex-shrink-0">
-
-           {isAdmin ? (
-            <Button
-              asChild
-              variant="ghost"
-              size="sm"
-              className="hidden lg:flex transition-all duration-300 hover:scale-105"
-            >
-              <Link href="/admin">
-                <LogIn className="mr-1 h-4 w-4" />
-                <span className="hidden xl:inline">Admin</span>
-              </Link>
-            </Button>
-          ) : (
-            <Button
-              asChild
-              variant="ghost"
-              size="sm"
-              className="hidden lg:flex transition-all duration-300 hover:scale-105"
-            >
-              <Link href="/admin">
-                <LogIn className="mr-1 h-4 w-4" />
-                <span className="hidden xl:inline">Login</span>
-              </Link>
-            </Button>
-          )}
-          <Button asChild size="sm" className="transition-all duration-300 hover:scale-105 whitespace-nowrap">
-            <Link href="/booking">
-              <Calendar className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
-              <span className="hidden md:inline">
-                <EditableText contentKey="nav.bookAppointmentFull" defaultValue="Book Appointment" as="span" />
-              </span>
-              <span className="md:hidden text-xs sm:text-sm">
-                <EditableText contentKey="nav.bookAppointmentShort" defaultValue="Book" as="span" />
-              </span>
-            </Link>
-          </Button>
-
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="xl:hidden">
-              <Button variant="ghost" size="icon" className="transition-all duration-300 hover:scale-110 flex-shrink-0">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="w-full sm:w-[400px] p-0 bg-gradient-to-br from-background via-background to-primary/5"
-            >
-              {/* Header */}
-              <div className="sticky top-0 z-10 bg-gradient-to-r from-primary to-secondary p-6 shadow-lg">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="relative h-12 w-12">
-                      <Image
-                        src="/images/albarakal-logo (1).png"
-                        alt="Al-Barakat Hearing Care Center Logo"
-                        fill
-                        className="object-contain"
-                        priority
-                      />
-                    </div>
-                    <div>
-                      <h2 className="text-lg font-bold text-white">Al-Barakat</h2>
-                      <p className="text-xs text-white/80">Hearing Care Centers</p>
-                    </div>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setIsOpen(false)}
-                    className="text-white hover:bg-white/20"
-                  >
-                    <X className="h-5 w-5" />
-                  </Button>
-                </div>
-              </div>
-
-              {/* Navigation Content */}
-              <nav className="flex flex-col h-[calc(100vh-120px)] overflow-y-auto">
-                <div className="p-6 space-y-2">
-                  {/* Home Link */}
-                  <Link
-                    href="/"
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary/20 hover:to-secondary/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-md group"
-                  >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors">
-                      <Home className="h-5 w-5 text-primary" />
-                    </div>
-                    <span className="font-semibold text-lg">Home</span>
-                  </Link>
-
-                  {/* Hearing Test CTA */}
-                  <Link
-                    href="/hearing-test"
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group animate-pulse-subtle"
-                  >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/30 group-hover:bg-white/40 transition-colors">
-                      <TestTube className="h-5 w-5 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <span className="font-bold text-white block">Free Hearing Test</span>
-                      <span className="text-xs text-white/80">Take it now - 3 minutes</span>
-                    </div>
-                    <ChevronRight className="h-5 w-5 text-white group-hover:translate-x-1 transition-transform" />
-                  </Link>
-
-                  {/* Expandable Sections */}
-                  <div className="space-y-2 mt-4">
-                    {/* Hearing Health Section */}
-                    <div className="rounded-xl border-2 border-secondary/30 overflow-hidden bg-card/50 backdrop-blur-sm hover:border-secondary hover:shadow-md transition-all duration-300">
-                      <button
-                        onClick={(e) => toggleSection("hearing", e)}
-                        className="w-full flex items-center justify-between p-4 hover:bg-secondary/5 transition-all duration-300"
-                      >
-                        <div className="flex items-center gap-3">
-                          <Ear className="h-5 w-5 text-primary" />
-                          <span className="font-semibold">Your Hearing Health</span>
-                        </div>
-                        <ChevronRight
-                          className={cn(
-                            "h-5 w-5 text-muted-foreground transition-transform duration-300",
-                            expandedSection === "hearing" && "rotate-90",
-                          )}
-                        />
-                      </button>
-                      <div
-                        className={cn(
-                          "overflow-hidden transition-all duration-300 ease-in-out",
-                          expandedSection === "hearing" ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
-                        )}
-                      >
-                        <div className="p-2 space-y-1 bg-accent/5">
-                          <Link
-                            href="/hearing-health/how-we-hear"
-                            onClick={() => setIsOpen(false)}
-                            className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/20 transition-all duration-200 group"
-                          >
-                            <div className="h-2 w-2 rounded-full bg-primary group-hover:scale-150 transition-transform" />
-                            <span className="text-sm">How Hearing Works
-                            </span>
-                          </Link>
-  <div className="flex flex-col">
-    <button
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setHearingLossOpen(!hearingLossOpen);
-      }}
-      className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 border-2 border-secondary/30 hover:border-secondary hover:bg-secondary/5 hover:text-foreground hover:shadow-md"
-    >
-                            <div className="h-2 w-2 rounded-full bg-primary group-hover:scale-150 transition-transform" />
-                            <div className="flex flex-1 flex-col text-left">
+<Activity className="h-5 w-5 text-accent" />
+      <div className="flex flex-1 flex-col text-left">
         <div className="flex items-center justify-between">
           <span className="text-sm font-medium leading-none">
-            <EditableText contentKey="nav.hearingLossTitle" defaultValue="Hearing Loss" as="span" />
+            <EditableText contentKey="nav.hearingAidTitle" defaultValue="Hearing Aid Care" as="span" />
           </span>
           <ChevronDown 
-            className={`h-4 w-4 text-muted-foreground transition-transform duration-300 ${
+            className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
               hearingLossOpen ? "rotate-180" : ""
             }`} 
           />
@@ -619,7 +302,6 @@ export function MainNavigation() {
     </div>
   </div>
 
-
   <div className="flex flex-col">
     <button
       onClick={(e) => {
@@ -627,10 +309,19 @@ export function MainNavigation() {
         e.stopPropagation();
         setTinnitusOpen(!tinnitusOpen); // Uses the specific tinnitus state
       }}
-      className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
+      className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 border-2 border-secondary/30 hover:border-secondary hover:bg-secondary/5 hover:text-foreground hover:shadow-md"
     >
-      {/* BellRing is a great icon for Tinnitus (ringing in the ears) */}
-      <div className="h-2 w-2 rounded-full bg-primary group-hover:scale-150 transition-transform" />
+      <BellRing className="h-5 w-5 text-secondary" />
+      <div className="flex flex-1 flex-col text-left">
+        <div className="flex items-center justify-between">
+          <span className="text-sm font-medium leading-none">
+            <EditableText contentKey="nav.tinnitusTitle" defaultValue="Tinnitus" as="span" />
+          </span>
+          <ChevronDown 
+            className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
+              tinnitusOpen ? "rotate-180" : ""
+            }`} 
+          />
 
       <div className="flex flex-1 flex-col text-left">
         <div className="flex items-center justify-between">
@@ -659,59 +350,6 @@ export function MainNavigation() {
         {[
           { href: "/hearing-health/tinnitus/symptoms-causes", label: "Symptoms and causes" },
           { href: "/hearing-health/tinnitus/tinnitus-therapy", label: "Tinnitus therapy" },
-        ].map((item, index) => (
-          <li key={index}>
-            <Link
-              href={item.href}
-              className="block py-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-secondary hover:translate-x-1 transform"
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-
-
-
-  <div className="flex flex-col">
-    <button
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setTinnitusOpen(!tinnitusOpen); // Uses the specific tinnitus state
-      }}
-      className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
-    >
-      {/* BellRing is a great icon for Tinnitus (ringing in the ears) */}
-      <div className="h-2 w-2 rounded-full bg-primary group-hover:scale-150 transition-transform" />
-      <div className="flex flex-1 flex-col text-left">
-        <div className="flex items-center justify-between">
-          <span className="text-sm font-medium leading-none">
-            <EditableText contentKey="nav.tinnitusTitle" defaultValue="ْUnderStanding Hearing Testing" as="span" />
-          </span>
-          <ChevronDown 
-            className={`h-4 w-4 text-muted-foreground transition-transform duration-300 ${
-              tinnitusOpen ? "rotate-180" : ""
-            }`} 
-          />
-        </div>
-        <p className="mt-1 text-sm leading-snug text-muted-foreground">
-          <EditableText contentKey="nav.tinnitusDesc" defaultValue="" as="span" />
-        </p>
-      </div>
-    </button>
-
-    {/* Animated Sub-links Area */}
-    <div
-      className={`overflow-hidden transition-all duration-300 ease-in-out ${
-        tinnitusOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-      }`}
-    >
-      <ul className="ml-9 mt-1 flex flex-col gap-1 border-l-2 border-secondary/20 pl-4">
-        {[
-          { href: "/hearing-health/tinnitus/", label: "UnderStanding Hearing Testing" },
         ].map((item, index) => (
           <li key={index}>
             <Link

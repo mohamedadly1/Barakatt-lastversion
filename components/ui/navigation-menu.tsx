@@ -30,7 +30,7 @@ function NavigationMenuList({ className, ...props }: React.ComponentProps<typeof
   return (
     <NavigationMenuPrimitive.List
       data-slot="navigation-menu-list"
-      className={cn("group flex flex-1 list-none items-center justify-center gap-1", className)}
+      className={cn("group flex list-none items-center gap-0", className)}
       {...props}
     />
   )
@@ -43,7 +43,7 @@ function NavigationMenuItem({ className, ...props }: React.ComponentProps<typeof
 }
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium border-2 border-primary/30 hover:border-primary hover:bg-primary/5 hover:text-foreground hover:shadow-md focus:border-primary focus:bg-primary/5 focus:text-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:border-primary data-[state=open]:bg-primary/5 data-[state=open]:text-foreground data-[state=open]:shadow-md focus-visible:ring-ring/50 outline-none transition-[color,box-shadow,border-color,background-color] focus-visible:ring-[3px] focus-visible:outline-1",
+  "group inline-flex h-auto w-max items-center justify-center px-3 py-2 text-sm font-medium text-foreground rounded-none border-b-2 border-transparent hover:border-primary hover:text-primary transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:border-primary data-[state=open]:text-primary focus-visible:outline-none",
 )
 
 function NavigationMenuTrigger({
@@ -89,7 +89,7 @@ function NavigationMenuViewport({
       <NavigationMenuPrimitive.Viewport
         data-slot="navigation-menu-viewport"
         className={cn(
-          "origin-top-center bg-card text-card-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border border-border shadow-lg md:w-[var(--radix-navigation-menu-viewport-width)] duration-100",
+          "origin-top-center bg-background text-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-2 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-sm border-t border-border shadow-sm md:w-[var(--radix-navigation-menu-viewport-width)] duration-100",
           className,
         )}
         {...props}

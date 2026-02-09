@@ -17,9 +17,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Mock authentication - in production, this would call an API
     if (username === "admin" && password === "admin") {
       setIsAdmin(true)
-      // Store in sessionStorage for persistence during session
-      if (typeof window !== "undefined") {
+      // Store in sessionStorage for persistence during session (only in browser)
+      try {
         sessionStorage.setItem("isAdmin", "true")
+      } catch (e) {
+        // sessionStorage not available (SSR context)
       }
       return true
     }
@@ -28,11 +30,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setIsAdmin(false)
-    if (typeof window !== "undefined") {
+    // Only access storage APIs in browser
+    try {
       sessionStorage.removeItem("isAdmin")
       localStorage.removeItem("adminModeEnabled")
       // Dispatch a custom event to notify AdminModeContext to update
       window.dispatchEvent(new Event("adminLogout"))
+    } catch (e) {
+      // Storage not available (SSR context)
     }
   }
 

@@ -12,11 +12,13 @@ const AdminModeContext = createContext<AdminModeContextType | undefined>(undefin
 
 export function AdminModeProvider({ children }: { children: ReactNode }) {
   const [isAdminMode, setIsAdminModeState] = useState(false)
+  const [isHydrated, setIsHydrated] = useState(false)
 
   useEffect(() => {
     // Check if admin mode is enabled in localStorage
     const adminMode = localStorage.getItem("adminModeEnabled") === "true"
     setIsAdminModeState(adminMode)
+    setIsHydrated(true)
 
     const handleAdminLogout = () => {
       setIsAdminModeState(false)

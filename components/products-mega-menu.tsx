@@ -80,7 +80,7 @@ export function ProductsMegaMenu() {
             </div>
 
             {/* Content Area */}
-            <div className="md:col-span-3 bg-gradient-to-br from-accent/5 via-background to-secondary/5 rounded-xl p-6 border border-border/50 min-h-96">
+            <div className="md:col-span-3 bg-background rounded-xl p-6 border border-border/50 min-h-96">
               {activeSubmenu ? (
                 (() => {
                   const activeCategory = productsMenuStructure.categories.find((c) => c.id === activeSubmenu)
@@ -89,30 +89,29 @@ export function ProductsMegaMenu() {
                   // Brand submenu (Hearing Aid Brands)
                   if (activeCategory.submenu) {
                     return (
-                      <div className="space-y-6">
-                        <h4 className="text-sm font-semibold uppercase text-muted-foreground tracking-wider">
+                      <div className="space-y-5">
+                        <h4 className="text-sm font-semibold uppercase text-foreground tracking-wider">
                           {activeCategory.label}
                         </h4>
-                        <div className="grid grid-cols-1 gap-6">
+                        <div className="space-y-4">
                           {activeCategory.submenu.map((brand) => (
-                            <div key={brand.id} className="space-y-3">
-                              <h5 className="font-semibold text-base text-foreground flex items-center gap-2">
-                                <div className="h-2 w-2 rounded-full bg-primary" />
+                            <div key={brand.id} className="space-y-2">
+                              <h5 className="font-medium text-sm text-foreground">
                                 {brand.label}
                               </h5>
-                              <p className="text-sm text-muted-foreground mb-3 ml-4">{brand.description}</p>
-                              <div className="grid grid-cols-2 gap-2 ml-4">
+                              <p className="text-xs text-muted-foreground mb-3">{brand.description}</p>
+                              <ul className="space-y-1">
                                 {brand.items?.map((item) => (
-                                  <Link
-                                    key={item.id}
-                                    href={item.href}
-                                    className="group text-sm text-muted-foreground hover:text-primary transition-all duration-300 py-2 px-3 rounded-md hover:bg-primary/5 flex items-center gap-2"
-                                  >
-                                    <span className="h-1 w-1 rounded-full bg-muted-foreground group-hover:bg-primary transition-colors" />
-                                    {item.label}
-                                  </Link>
+                                  <li key={item.id}>
+                                    <Link
+                                      href={item.href}
+                                      className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200 py-1.5 px-3 block rounded-md border-l-2 border-transparent hover:border-primary hover:bg-primary/5"
+                                    >
+                                      {item.label}
+                                    </Link>
+                                  </li>
                                 ))}
-                              </div>
+                              </ul>
                             </div>
                           ))}
                         </div>
@@ -124,44 +123,41 @@ export function ProductsMegaMenu() {
                   if (activeCategory.items) {
                     return (
                       <div className="space-y-4">
-                        <h4 className="text-sm font-semibold uppercase text-muted-foreground tracking-wider">
+                        <h4 className="text-sm font-semibold uppercase text-foreground tracking-wider">
                           {activeCategory.label}
                         </h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <ul className="space-y-2">
                           {activeCategory.items.map((item) => (
-                            <Link
-                              key={item.id}
-                              href={item.href}
-                              className="group block p-4 rounded-lg border border-transparent bg-gradient-to-br from-primary/5 to-secondary/5 hover:from-primary/15 hover:to-secondary/15 hover:border-primary/30 transition-all duration-300 hover:shadow-md"
-                            >
-                              <div className="flex items-center gap-3 group-hover:gap-4 transition-all duration-300">
-                                <div className="h-3 w-3 rounded-full bg-primary group-hover:scale-125 transition-transform duration-300" />
-                                <span className="text-sm font-medium group-hover:text-primary transition-colors duration-300">
-                                  {item.label}
-                                </span>
-                              </div>
-                            </Link>
+                            <li key={item.id}>
+                              <Link
+                                href={item.href}
+                                className="block p-3 rounded-lg border-2 border-primary/20 hover:border-primary hover:bg-primary/5 transition-all duration-300 text-sm text-muted-foreground hover:text-primary hover:shadow-sm"
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </div>
                     )
                   }
 
                   // Simple link category
                   return (
-                    <div className="flex flex-col items-center justify-center h-full">
+                    <div className="flex flex-col items-center justify-center h-full gap-4">
+                      <p className="text-sm text-muted-foreground text-center">{activeCategory.label}</p>
                       <Link
                         href={activeCategory.href || "/products"}
-                        className="group px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+                        className="px-5 py-2 border-2 border-primary text-primary rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all duration-300"
                       >
-                        Explore {activeCategory.label}
+                        Explore
                       </Link>
                     </div>
                   )
                 })()
               ) : (
                 <div className="flex flex-col items-center justify-center h-full gap-4">
-                  <Ear className="h-12 w-12 text-muted-foreground/30" />
+                  <Ear className="h-10 w-10 text-muted-foreground/30" />
                   <p className="text-sm text-muted-foreground text-center">Select a category to view products</p>
                 </div>
               )}

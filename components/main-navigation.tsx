@@ -199,10 +199,10 @@ export function MainNavigation() {
     {/* Animated Sub-links Area */}
     <div
       className={`overflow-hidden transition-all duration-300 ease-in-out ${
-        hearingLossOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+        hearingLossOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
       }`}
     >
-      <ul className="ml-9 mt-1 flex flex-col gap-1 border-l-2 border-secondary/20 pl-4">
+      <ul className="mt-3 flex flex-col gap-2 pl-8 pb-2">
         {[
           { href: "/hearing-health/hearing-loss/signs-of-hearing-loss", label: "Signs of hearing loss" },
           { href: "/hearing-health/hearing-loss/causes-of-hearing-loss", label: "Causes of hearing loss" },
@@ -213,7 +213,7 @@ export function MainNavigation() {
           <li key={index}>
             <Link
               href={item.href}
-              className="block py-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-secondary hover:translate-x-1 transform"
+              className="block px-3 py-2 text-sm text-muted-foreground rounded-md border-l-2 border-transparent hover:border-secondary hover:bg-secondary/5 transition-all duration-200 hover:text-secondary"
             >
               {item.label}
             </Link>
@@ -230,7 +230,7 @@ export function MainNavigation() {
         e.stopPropagation();
         setTinnitusOpen(!tinnitusOpen); // Uses the specific tinnitus state
       }}
-      className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
+      className="group flex w-full select-none items-start gap-3 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 border-2 border-secondary/30 hover:border-secondary hover:bg-secondary/5 hover:text-foreground hover:shadow-md"
     >
       {/* BellRing is a great icon for Tinnitus (ringing in the ears) */}
       <BellRing className="h-5 w-5 text-secondary transition-transform duration-300 group-hover:scale-110" />
@@ -254,10 +254,10 @@ export function MainNavigation() {
     {/* Animated Sub-links Area */}
     <div
       className={`overflow-hidden transition-all duration-300 ease-in-out ${
-        tinnitusOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+        tinnitusOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
       }`}
     >
-      <ul className="ml-9 mt-1 flex flex-col gap-1 border-l-2 border-secondary/20 pl-4">
+      <ul className="mt-3 flex flex-col gap-2 pl-8 pb-2">
         {[
           { href: "/hearing-health/tinnitus/symptoms-causes", label: "Symptoms and causes" },
           { href: "/hearing-health/tinnitus/tinnitus-therapy", label: "Tinnitus therapy" },
@@ -265,7 +265,7 @@ export function MainNavigation() {
           <li key={index}>
             <Link
               href={item.href}
-              className="block py-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-secondary hover:translate-x-1 transform"
+              className="block px-3 py-2 text-sm text-muted-foreground rounded-md border-l-2 border-transparent hover:border-secondary hover:bg-secondary/5 transition-all duration-200 hover:text-secondary"
             >
               {item.label}
             </Link>
@@ -355,7 +355,7 @@ export function MainNavigation() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={cn(
-                          "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 hover:bg-primary/10 hover:text-foreground hover:shadow-md hover:scale-[1.02] focus:bg-primary/10 focus:text-foreground",
+                          "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 border-2 border-primary/20 hover:border-primary hover:bg-primary/5 hover:text-foreground hover:shadow-md focus:border-primary focus:bg-primary/5 focus:text-foreground",
                         )}
                       >
                         <div className="flex items-center gap-2">
@@ -1033,7 +1033,7 @@ const ListItem = ({
         <Link
           href={href}
           className={cn(
-            "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 hover:bg-primary/10 hover:text-foreground hover:shadow-md hover:scale-[1.02] focus:bg-primary/10 focus:text-foreground",
+            "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-300 border-2 border-primary/20 hover:border-primary hover:bg-primary/5 hover:text-foreground hover:shadow-md focus:border-primary focus:bg-primary/5 focus:text-foreground",
             className,
           )}
           {...props}

@@ -242,7 +242,6 @@ export default function HomePage() {
       </section>
 
       {/* Products Section */}
-   {/* Products Section */}
    <section className="bg-muted/50 py-16 md:py-24">
   <div className="container mx-auto max-w-7xl px-4">
     <div className="mx-auto mb-12 max-w-2xl text-center">
@@ -261,11 +260,12 @@ export default function HomePage() {
       className="group overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 animate-fade-in-up cursor-pointer"
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      <div className="relative overflow-hidden">
-        <img
+      <div className="relative overflow-hidden h-48 w-full">
+        <Image
           src={product.image}
           alt={product.name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
@@ -371,7 +371,7 @@ export default function HomePage() {
                 <CardContent className="p-0">
                   <div className="relative h-64 w-full overflow-hidden group">
                     <Image
-                      src="Signia_soundwave-logo_1200x630.jpg"
+                      src="/images/Signia_soundwave-logo_1200x630.jpg"
                       alt="Signia hearing aid technology"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -382,9 +382,6 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="p-6">
-                  <div className="mb-4 flex justify-center">
-                   
-                  </div>
                     <div className="mb-4 flex justify-center">
                       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                         <Award className="h-8 w-8 text-primary" />
@@ -403,7 +400,7 @@ export default function HomePage() {
                 <CardContent className="p-0">
                   <div className="relative h-64 w-full overflow-hidden group">
                     <Image
-                      src="rexton-logo-yellow-2000x1500px.webp"
+                      src="/images/rexton-logo-yellow-2000x1500px.webp"
                       alt="Rexton hearing aid technology"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -414,9 +411,6 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="p-6">
-                  <div className="mb-4 flex justify-center">
-                  
-                  </div>
                     <div className="mb-4 flex justify-center">
                       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-secondary/10">
                         <Shield className="h-8 w-8 text-secondary" />
